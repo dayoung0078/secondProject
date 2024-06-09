@@ -1,16 +1,27 @@
-<script>
+<script setup>
 
-import OrderReceipt from './views/OrderReceipt.vue';
 import ReceiptBG from '@/views/ReceiptBG.vue';
+
+// export default {
+//   name: 'App',
+// components: {
+//   OrderReceipt,
+//   ReceiptBG
+// }
+// }
 
 </script>
 
 <template>
-  <ReceiptBG/>
-  <div id="App">
-    
-    <OrderReceipt />
+
+  <!-- template 태그는 기본 템플릿 영역임! -->
+  <div id="app">
+    <OrderReceipt/>
+    <ReceiptBG/>
+
+
   </div>
+
 </template>
 
 <style scoped>

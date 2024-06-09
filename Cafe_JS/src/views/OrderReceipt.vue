@@ -1,50 +1,71 @@
+얘가 자식
+
+
 <script>
-import ReceiptBG from '/views/ReceiptBG.vue'
 import { ref, computed } from 'vue';
 // 넘버도 데이터로 받아와야함
 
 export default {
   name: 'OrderReceipt',
-  components: {
-        ReceiptBG
-        },
-        setup() {
-        const orderNumber = ref('123');
-        const orderDate = ref(new Date().toLocaleDateString());
-        const items = ref([
-          { id: 1, name: '아이스 아메리카노', quantity: 2, price: 8000 }, 
-          { id: 2, name: '따뜻한 카페라떼', quantity: 1, price: 4500 },
-          { id: 3, name: '콜드브루', quantity: 3, price: 15000 },
-        ]);
+  setup() {
+    const orderNumber = ref('123');
+    const orderDate = ref(new Date().toLocaleDateString());
+    const items = ref([
+      { id: 1, name: '아이스 아메리카노', quantity: 2, price: 8000 }, 
+      { id: 2, name: '따뜻한 카페라떼', quantity: 1, price: 4500 },
+      { id: 3, name: '콜드브루', quantity: 3, price: 15000 },
+    ]);
 
-        const totalPrice = computed(() => items.value.reduce((acc, item) => acc + item.price, 0));
-        const Number = ref('253');
+    const totalPrice = computed(() => items.value.reduce((acc, item) => acc + item.price, 0));
+    const Number = ref('253');
+  },
+  // props: {
+  //   orderNumber,
+  //   orderDate,
+    // items: Array,
+  //   totalPrice,
+  //   totalNumber,
+  //   //부모에서 자식으로 데이터를 전달하는 경우 props
 
-        }
-  props: {
-    orderNumber,
-    orderDate,
-    items: Array,
-    totalPrice,
-    totalNumber
-    //부모에서 자식으로 데이터를 전달하는 경우 props
-
-    return {
-      orderNumber,
-      orderDate,
-      items,
-      totalPrice,
-      totalNumber
-    };
-  }
+    // return: {
+  //     orderNumber,
+  //     orderDate,
+      // items,
+  //     totalPrice,
+  //     totalNumber,
+    // },
+  // }
 };
 </script>
 
 
 
 <template>
+    <!-- <div class="ReceiptBox"> </div> -->
+    <!-- <div class="order-details">
+      <div>주문서 # 345</div>
+    <div class="order-date">
+      <div>2024</div> -->
 
-  <ReceiptBG>
+    <div class="items">
+      <ul>
+        <li>
+          <span>1.아메 - 1 x $0000</span>
+        </li>
+      </ul>
+    </div>
+    <div class="total">
+      <p><strong>TOTAL</strong> <div class="price">$0000</div></p>
+    </div>
+    <div class="ReceiptBox">
+    </div>
+    <div class="Number">
+      <h4> </h4>    
+      </div>
+  <!-- </div>
+  </div> -->
+</template>
+<!-- <template>
     <div class="order-details">
       <div>주문서 #</div> {{ orderNumber }}
     <div class="order-date">
@@ -60,22 +81,20 @@ export default {
     <div class="total">
       <p><strong>TOTAL</strong> <div class="price">${{ totalPrice }}</div></p>
     </div>
-    <div class="ReceiptBox">
-    </div>
+    
     <div class="Number">
       <h4 class= {{ Number }}> </h4>    
       </div>
   </div>
   </div>
-  </ReceiptBG>
-</template>
+</template> -->
 
 
 
 <style scoped>
 
 .ReceiptBox {   
-  position: absolute;
+  position: relative;
 width: 700px;
 height: auto;
 background: linear-gradient
